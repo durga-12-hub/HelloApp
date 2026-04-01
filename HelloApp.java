@@ -1,11 +1,16 @@
 
-
 public class HelloApp {
     public static void main(String[] args) {
-        // args[0] picks up the first argument provided in the terminal
-        String name = args[0];
-        
-        // Using the + operator to combine (concatenate) the greeting and the name
+        // 1. Set a default name
+        String name = "World";
+
+        // 2. Check if the user provided an argument
+        // .length tells us how many words you typed after the command
+        if (args.length > 0) {
+            name = args[0]; // Overwrite "World" with the input name
+        }
+
+        // 3. Output the greeting
         System.out.println("Hello, " + name + "!");
     }
 }
