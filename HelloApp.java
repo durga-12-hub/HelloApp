@@ -1,26 +1,24 @@
 public class HelloApp {
+
     public static void main(String[] args) {
 
-        // Check if no arguments are passed
+        // If no arguments → default message
         if (args.length == 0) {
             System.out.println("Hello, World!");
             return;
         }
 
-        // Using StringBuilder to build output
+        // Build string with comma
         StringBuilder nameBuilder = new StringBuilder();
-        boolean first = true;
 
-        // Enhanced for loop
         for (String name : args) {
-            if (!first) {
-                nameBuilder.append(", ");
-            }
-            nameBuilder.append(name);
-            first = false;
+            nameBuilder.append(name).append(", ");
         }
 
-        // Final Output
-        System.out.println("Hello, " + nameBuilder.toString());
+        // Remove last ", " using substring
+        String result = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+        // Print final output
+        System.out.println("Hello, " + result + "!");
     }
 }
