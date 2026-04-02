@@ -1,24 +1,26 @@
-
-
 public class HelloApp {
     public static void main(String[] args) {
-        String name = "World";
 
-        if (args.length > 0) {
-            // StringBuilder is more efficient than String for joining text
-            StringBuilder nameBuilder = new StringBuilder();
-            
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-                
-                // Add a comma and space if it's not the last name
-                if (i < args.length - 1) {
-                    nameBuilder.append(", ");
-                }
-            }
-            name = nameBuilder.toString();
+        // Check if no arguments are passed
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+            return;
         }
 
-        System.out.println("Hello, " + name + "!");
+        // Using StringBuilder to build output
+        StringBuilder nameBuilder = new StringBuilder();
+        boolean first = true;
+
+        // Enhanced for loop
+        for (String name : args) {
+            if (!first) {
+                nameBuilder.append(", ");
+            }
+            nameBuilder.append(name);
+            first = false;
+        }
+
+        // Final Output
+        System.out.println("Hello, " + nameBuilder.toString());
     }
 }
